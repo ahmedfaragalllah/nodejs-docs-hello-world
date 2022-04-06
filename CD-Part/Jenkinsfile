@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-		  DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-hk')
+		  DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-fa')
     }
     stages {
         stage('Clean') {
@@ -26,12 +26,12 @@ pipeline {
         }
       stage('Tag') {
             steps {
-                sh 'docker tag helloworld:$BUILD_NUMBER hamzhkoujan/hk-helloworld:$BUILD_NUMBER'
+                sh 'docker tag helloworld:$BUILD_NUMBER afaragallahsa/hk-helloworld:$BUILD_NUMBER'
             }
         }
         stage('Push') {
             steps {
-                sh 'docker push hamzhkoujan/hk-helloworld:$BUILD_NUMBER'
+                sh 'docker push afaragallahsa/hk-helloworld:$BUILD_NUMBER'
             }
         }
     }
